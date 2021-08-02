@@ -7,17 +7,8 @@ import java.util.Date;
 
 @Entity
 @Table(name = "PROFILE")
-public class Profile{
-//        extends BaseEntity {
+public class Profile extends BaseEntity {
 
-    @Id
-    @GeneratedValue (strategy = GenerationType.SEQUENCE)
-    @Column(name = "ID")
-    private Long id;
-
-    @Column(name = "CREATED_DATE", nullable = false, updatable = false)
-    @CreatedDate
-    private Date createdDate;
 
     @Column(name = "FIRST_NAME", length = 30)
     private String firstName;

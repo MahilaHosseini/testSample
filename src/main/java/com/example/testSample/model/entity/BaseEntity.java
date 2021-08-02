@@ -4,9 +4,9 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
-
-//@Entity
-//@Table(name = "BASE")
+@Entity
+@Table(name = "BASE")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class BaseEntity {
 
     @Id

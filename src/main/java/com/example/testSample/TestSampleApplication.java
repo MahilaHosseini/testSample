@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 
-@EntityScan(basePackages = {"com.example.testSample.model"})
+//@EntityScan(basePackages = {"com.example.testSample.model"})
 public class TestSampleApplication {
 
 	public static void main(String[] args) {
