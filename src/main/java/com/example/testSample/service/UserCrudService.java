@@ -1,7 +1,6 @@
 package com.example.testSample.service;
 
 import com.example.testSample.dto.UserDtoIn;
-import com.example.testSample.dto.UserDtoOut;
 import com.example.testSample.model.entity.User;
 import com.example.testSample.model.repository.UserDao;
 import org.modelmapper.ModelMapper;
@@ -60,6 +59,17 @@ public class UserCrudService {
                 userDao.save(userToUpdate.get());
             } else {
                 System.out.println("user not exist");
+            }
+        }
+    }
+
+    public void userLogIn(String password, String userName) {
+        if (Objects.nonNull(password) && Objects.nonNull(userName)) {
+            User user = userDao.findByUserName(userName);
+            if (user.getPassword().equals(password)) {
+                System.out.println("logged in");
+            } else {
+                System.out.println(" wrong username or password");
             }
         }
     }

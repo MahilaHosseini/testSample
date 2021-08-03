@@ -1,12 +1,7 @@
 package com.example.testSample.controller;
 
 import com.example.testSample.dto.UserDtoIn;
-import com.example.testSample.dto.UserDtoOut;
-import com.example.testSample.model.entity.Profile;
-import com.example.testSample.model.entity.User;
 import com.example.testSample.service.UserCrudService;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
@@ -37,9 +32,16 @@ public class UserWebServiceController {
     }
 
     @RequestMapping(value = "/ws/updateUser", method = RequestMethod.POST)
-    public void updateUser( @RequestBody UserDtoIn user,@RequestParam Long id) {
+    public void updateUser(@RequestBody UserDtoIn user, @RequestParam Long id) {
         if (Objects.nonNull(user)) {
             userCrudService.updateUser(id, user);
+        }
+    }
+
+    @RequestMapping(value = "/ws/logIn", method = RequestMethod.GET)
+    public void logIn(@RequestParam String password, @RequestParam String userName) {
+        if (Objects.nonNull(password) && Objects.nonNull(userName)) {
+            userCrudService.userLogIn(password, userName);
         }
     }
 
