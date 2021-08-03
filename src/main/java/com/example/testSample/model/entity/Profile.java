@@ -21,4 +21,54 @@ public class Profile extends BaseEntity {
     @OneToOne(mappedBy = "profile")
     private User user;
 
+    public Profile(String firstName, String lastName, String nationalCode, Boolean isDeleted) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nationalCode = nationalCode;
+        this.isDeleted = isDeleted;
+        this.user = user;
+    }
+
+    public Profile() {
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getNationalCode() {
+        return nationalCode;
+    }
+
+    public void setNationalCode(String nationalCode) {
+        this.nationalCode = nationalCode;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
