@@ -1,7 +1,7 @@
 package com.example.testSample.controller;
 
-import com.example.testSample.dto.UserDtoIn;
-import com.example.testSample.dto.UserDtoOut;
+import com.example.testSample.dto.In.UserDtoIn;
+import com.example.testSample.dto.out.UserDtoOut;
 import com.example.testSample.service.UserCrudService;
 import org.springframework.web.bind.annotation.*;
 

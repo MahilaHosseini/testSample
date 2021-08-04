@@ -1,7 +1,7 @@
 package com.example.testSample.service;
 
-import com.example.testSample.dto.UserDtoIn;
-import com.example.testSample.dto.UserDtoOut;
+import com.example.testSample.dto.In.UserDtoIn;
+import com.example.testSample.dto.out.UserDtoOut;
 import com.example.testSample.model.entity.User;
 import com.example.testSample.model.repository.UserDao;
 import org.modelmapper.ModelMapper;

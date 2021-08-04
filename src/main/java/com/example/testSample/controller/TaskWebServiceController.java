@@ -1,7 +1,7 @@
 package com.example.testSample.controller;
 
-import com.example.testSample.dto.TaskDtoIn;
-import com.example.testSample.dto.TaskDtoOut;
+import com.example.testSample.dto.In.TaskDtoIn;
+import com.example.testSample.dto.out.TaskDtoOut;
 import com.example.testSample.service.TaskCrudService;
 import org.springframework.web.bind.annotation.*;
 

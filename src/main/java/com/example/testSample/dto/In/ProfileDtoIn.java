@@ -1,13 +1,15 @@
-package com.example.testSample.dto;
+package com.example.testSample.dto.In;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class ProfileDtoOut {
+public class ProfileDtoIn {
 
     private String firstName;
+
     private String lastName;
+
     private String nationalCode;
 }

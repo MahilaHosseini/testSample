@@ -1,7 +1,7 @@
 package com.example.testSample.service;
 
-import com.example.testSample.dto.TaskDtoIn;
-import com.example.testSample.dto.TaskDtoOut;
+import com.example.testSample.dto.In.TaskDtoIn;
+import com.example.testSample.dto.out.TaskDtoOut;
 import com.example.testSample.model.entity.Task;
 import com.example.testSample.model.entity.User;
 import com.example.testSample.model.repository.TaskDao;
@@ -16,9 +16,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class TaskCrudService {
-    private final TaskDao taskDao;
     final
     UserDao userDao;
+    private final TaskDao taskDao;
     ModelMapper modelMapper = new ModelMapper();
 
     public TaskCrudService(TaskDao taskDao, UserDao userDao) {
