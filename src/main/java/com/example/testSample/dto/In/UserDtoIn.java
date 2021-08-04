@@ -1,6 +1,5 @@
-package com.example.testSample.dto;
+package com.example.testSample.dto.In;
 
-import com.example.testSample.model.entity.Profile;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,10 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserDtoIn{
+public class UserDtoIn {
 
     private String userName;
     private String password;
-    private Profile profile;
+    private ProfileDtoIn profile;
 
 }

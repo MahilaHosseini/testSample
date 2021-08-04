@@ -1,7 +1,9 @@
 package com.example.testSample.service;
 
-import com.example.testSample.dto.UserDtoIn;
-import com.example.testSample.dto.UserDtoOut;
+import com.example.testSample.dto.In.ProfileDtoIn;
+import com.example.testSample.dto.In.UserDtoIn;
+import com.example.testSample.dto.out.UserDtoOut;
+import com.example.testSample.model.entity.Profile;
 import com.example.testSample.model.entity.User;
 import com.example.testSample.model.repository.UserDao;
 import org.modelmapper.ModelMapper;
@@ -11,42 +13,44 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class UserCrudService {
+public class UserService {
     private final UserDao userDao;
-    ModelMapper modelMapper = new ModelMapper();
+    private final ModelMapper modelMapper = new ModelMapper();
+    private final TaskService taskService;
 
-    public UserCrudService(UserDao userDao) {
+    public UserService(UserDao userDao, TaskService taskService) {
         this.userDao = userDao;
+        this.taskService = taskService;
+        modelMapper.typeMap(ProfileDtoIn.class, Profile.class).addMappings(mapper -> {
+            mapper.skip(Profile::setUser);
+        });
+
     }
 
     public void addUser(UserDtoIn newUser) {
         if (Objects.nonNull(newUser)) {
             User user = modelMapper.map(newUser, User.class);
             user.setIsDeleted(false);
-            user.getProfile().setIsDeleted(false);
             userDao.save(user);
         }
-
-//        else {
-//            System.out.println("duplicate");
-//        }
+//todo
     }
 
-    public void deleteUser(String userName) {
+    public void deleteUser(String userName) throws Exception {
         if (Objects.nonNull(userName)) {
             User user = userDao.findByUserName(userName);
             if (Objects.nonNull(user)) {
                 user.setIsDeleted(true);
-                user.getProfile().setIsDeleted(true);
+                taskService.deleteAllUserTasks(user.getId());
                 userDao.save(user);
             } else {
-                System.out.println("user not exist");
+                throw new Exception();
             }
         }
     }
 
-    //    changePassword or username or edit profile fields
-    public void updateUser(Long id, UserDtoIn user) {
+    //    change Password or username or edit profile fields
+    public void updateUser(Long id, UserDtoIn user) throws Exception {
         if (Objects.nonNull(user) && Objects.nonNull(id)) {
             Optional<User> userToUpdate = userDao.findById(id);
             if (userToUpdate.isPresent()) {
@@ -59,30 +63,29 @@ public class UserCrudService {
                 });
                 userDao.save(userToUpdate.get());
             } else {
-                System.out.println("user not exist");
+                throw new Exception();
             }
         }
     }
 
-    public void userLogIn(String password, String userName) {
+    public void userLogIn(String password, String userName) throws Exception {
         if (Objects.nonNull(password) && Objects.nonNull(userName)) {
             User user = userDao.findByUserName(userName);
             if (user.getPassword().equals(password)) {
                 System.out.println("logged in");
             } else {
-                System.out.println(" wrong username or password");
+                throw new Exception();
             }
         }
     }
 
-    public UserDtoOut findUser(String userName) {
+    public UserDtoOut findUser(String userName) throws Exception {
         if (Objects.nonNull(userName)) {
             User user = userDao.findByUserName(userName);
-
             if (Objects.nonNull(user)) {
                 return modelMapper.map(user, UserDtoOut.class);
             } else {
-                System.out.println("user not exist");
+                throw new Exception();
             }
 
         }

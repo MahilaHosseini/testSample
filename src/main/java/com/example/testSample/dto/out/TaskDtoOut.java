@@ -1,16 +1,16 @@
-package com.example.testSample.dto;
+package com.example.testSample.dto.out;
 
 import com.example.testSample.enums.Priority;
-import com.example.testSample.model.entity.TaskDetail;
-import com.example.testSample.model.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
-public class TaskDtoOut extends BaseDtoOut{
+public class TaskDtoOut {
+    private Long id;
+    private Date createdDate;
     private String title;
     private Priority priority;
     private Boolean done;
