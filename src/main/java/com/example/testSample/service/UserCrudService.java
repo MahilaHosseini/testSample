@@ -1,6 +1,7 @@
 package com.example.testSample.service;
 
 import com.example.testSample.dto.UserDtoIn;
+import com.example.testSample.dto.UserDtoOut;
 import com.example.testSample.model.entity.User;
 import com.example.testSample.model.repository.UserDao;
 import org.modelmapper.ModelMapper;
@@ -48,7 +49,7 @@ public class UserCrudService {
     public void updateUser(Long id, UserDtoIn user) {
         if (Objects.nonNull(user) && Objects.nonNull(id)) {
             Optional<User> userToUpdate = userDao.findById(id);
-            if (Objects.nonNull(userToUpdate)) {
+            if (userToUpdate.isPresent()) {
                 userToUpdate.ifPresent((value) -> {
                     value.setPassword(user.getPassword());
                     value.setUserName(user.getUserName());
@@ -74,7 +75,7 @@ public class UserCrudService {
         }
     }
 
-/*    public UserDtoOut findUser(String userName) {
+    public UserDtoOut findUser(String userName) {
         if (Objects.nonNull(userName)) {
             User user = userDao.findByUserName(userName);
 
@@ -86,6 +87,6 @@ public class UserCrudService {
 
         }
         return null;
-    }*/
+    }
 }
 

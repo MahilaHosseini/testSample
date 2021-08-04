@@ -1,6 +1,7 @@
 package com.example.testSample.controller;
 
 import com.example.testSample.dto.UserDtoIn;
+import com.example.testSample.dto.UserDtoOut;
 import com.example.testSample.service.UserCrudService;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,11 +46,10 @@ public class UserWebServiceController {
         }
     }
 
-/*
     @RequestMapping(value = "/ws/findUser", method = RequestMethod.GET)
-    public @ResponseBody UserDtoOut findUser(@RequestParam String userName ){
+    public @ResponseBody
+    UserDtoOut findUser(@RequestParam String userName) {
         return userCrudService.findUser(userName);
     }
-*/
 
 }

@@ -1,10 +1,11 @@
 package com.example.testSample.controller;
 
-import com.example.testSample.model.entity.Task;
+import com.example.testSample.dto.TaskDtoIn;
+import com.example.testSample.dto.TaskDtoOut;
 import com.example.testSample.service.TaskCrudService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -18,7 +19,7 @@ public class TaskWebServiceController {
     }
 
     @RequestMapping(value = "/ws/addTask", method = RequestMethod.POST)
-    public void addTask(@RequestBody Task task) {
+    public void addTask(@RequestBody TaskDtoIn task) {
         if (Objects.nonNull(task)) {
             taskCrudService.addTask(task);
         }
@@ -36,6 +37,15 @@ public class TaskWebServiceController {
         if (Objects.nonNull(id)) {
             taskCrudService.updateTask(id);
         }
+    }
+
+    @RequestMapping(value = "/ws/getAllTasks", method = RequestMethod.GET)
+    public @ResponseBody
+    List<TaskDtoOut> getAllTasks(@RequestParam String username) {
+        if (Objects.nonNull(username)) {
+            return taskCrudService.getAllTasks(username);
+        }
+        return null;
     }
 
 

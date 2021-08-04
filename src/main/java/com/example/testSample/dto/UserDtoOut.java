@@ -1,6 +1,5 @@
 package com.example.testSample.dto;
 
-import com.example.testSample.model.entity.Profile;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +12,6 @@ public class UserDtoOut extends BaseDtoOut {
 
     private String userName;
     private String password;
-    private Profile profile;
+    private ProfileDtoOut profile;
 
 }

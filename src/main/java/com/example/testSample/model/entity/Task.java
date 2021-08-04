@@ -18,9 +18,8 @@ public class Task extends BaseEntity {
     private Priority priority;
     @Column(name = "IS_DONE")
     private Boolean done;
-    @ManyToOne
-    @JoinColumn(name = "USER_ID", referencedColumnName = "ID"/*, nullable = false*/)
-    private User user;
+    @Column(name = "USERNAME")
+    private String user;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TASK_DETAIL_ID", referencedColumnName = "ID", nullable = false)
     private TaskDetail taskDetail;
