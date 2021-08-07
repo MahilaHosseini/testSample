@@ -1,0 +1,1086 @@
+Index: src/main/java/com/example/testSample/repository/service/TaskService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/testSample/repository/service/TaskService.java b/src/main/java/com/example/testSample/repository/service/TaskService.java
+--- a/src/main/java/com/example/testSample/repository/service/TaskService.java	
++++ b/src/main/java/com/example/testSample/repository/service/TaskService.java	(date 1628309042010)
+@@ -71,7 +71,7 @@
+ 
+     public List<TaskDtoOut> getAllTasks(Long userId) throws Exception {
+         List<Task> tasks = taskDao.findAllByUserId(userId);
+-        if (tasks.isEmpty()) {
++        if (Objects.isNull(tasks)) {
+             throw new Exception();
+         }
+         return tasks.stream().map(task -> modelMapper.map(task, TaskDtoOut.class)).collect(Collectors.toList());
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_8_4_21__5_54_PM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_8_4_21__5_54_PM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_8_4_21__5_54_PM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_8_4_21__5_54_PM__Changes_.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_8_4_21,_5_54_PM_[Changes]" date="1628083452818" recycled="false" toDelete="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_4_21,_5_54_PM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 8/4/21, 5:54 PM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21__5_57_PM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21__5_57_PM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21__5_57_PM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21__5_57_PM__Changes_.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_8_4_21,_5_57_PM_[Changes]" date="1628083654112" recycled="false" toDelete="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21,_5_57_PM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 8/4/21, 5:57 PM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21__5_57_PM__Changes_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21__5_57_PM__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21__5_57_PM__Changes_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21__5_57_PM__Changes_1.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_8_4_21,_5_57_PM_[Changes]1" date="1628083662609" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21,_5_57_PM_[Changes]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 8/4/21, 5:57 PM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/httpRequests/http-requests-log.http
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/http-requests-log.http b/.idea/httpRequests/http-requests-log.http
+--- a/.idea/httpRequests/http-requests-log.http	
++++ b/.idea/httpRequests/http-requests-log.http	(date 1628309041990)
+@@ -1,278 +1,3 @@
+-GET http://localhost:8080/task/getAll?userId=1
+-Accept: application/json
+-
+-<> 2021-08-07T083256.500.json
+-
+-###
+-
+-DELETE http://localhost:8080/user?userName=piper.p
+-Accept: application/json
+-
+-###
+-
+-POST http://localhost:8080/user
+-Content-Type: application/json
+-
+-{
+-  "userName": "Mahi76",
+-  "password": "1234",
+-  "profile": {
+-    "firstName": "Mahila",
+-    "lastName": "Hosseini",
+-    "nationalCode": "0020575823"
+-  }
+-}
+-
+-###
+-
+-POST http://localhost:8080/user
+-Content-Type: application/json
+-
+-{
+-  "userName": "piper.p",
+-  "password": "1234",
+-  "profile": {
+-    "firstName": "Peter",
+-    "lastName": "Piper",
+-    "nationalCode": "0021458978"
+-  }
+-}
+-
+-###
+-
+-GET http://localhost:8080/task/getAll?userId=1
+-Accept: application/json
+-
+-<> 2021-08-07T083228.200.json
+-
+-###
+-
+-GET http://localhost:8080/task/getAll?userId=1
+-Accept: application/json
+-
+-<> 2021-08-07T083146.200.json
+-
+-###
+-
+-GET http://localhost:8080/task/getAll?userId=1
+-Accept: application/json
+-
+-<> 2021-08-07T083015.200.json
+-
+-###
+-
+-GET http://localhost:8080/task/getAll?userId=1
+-Accept: application/json
+-
+-<> 2021-08-07T082905.200.json
+-
+-###
+-
+-GET http://localhost:8080/task/getAll?userId=1
+-Accept: application/json
+-
+-<> 2021-08-07T082850.200.json
+-
+-###
+-
+-GET http://localhost:8080/task/getAll?userId=7
+-Accept: application/json
+-
+-<> 2021-08-07T082822.200.json
+-
+-###
+-
+-PUT http://localhost:8080/task/do?id=11
+-Accept: application/json
+-
+-###
+-
+-PUT http://localhost:8080/task/edit?id=11
+-Content-Type: application/json
+-
+-{
+-  "priority": "LOW",
+-  "taskDetail": {
+-    "deadline": 65,
+-    "description": "test task to see edited again"
+-  }
+-}
+-
+-###
+-
+-POST http://localhost:8080/task/add
+-Content-Type: application/json
+-
+-{
+-  "title": "tasknum2",
+-  "priority": "HIGH",
+-  "userId":7,
+-  "taskDetail": {
+-    "deadline": 18,
+-    "description": "test task to see number2"
+-  }
+-}
+-
+-###
+-
+-POST http://localhost:8080/task/add
+-Content-Type: application/json
+-
+-{
+-  "title": "tasknum2",
+-  "priority": "HIGH",
+-  "userId": 7,
+-  "taskDetail": {
+-    "deadline": 18,
+-    "description": "test task to see number2"
+-  }
+-}
+-
+-###
+-
+-POST http://localhost:8080/task/add
+-Content-Type: application/json
+-
+-{
+-  "title": "tasknum1",
+-  "priority": "NORMAL",
+-  "userId": 1,
+-  "taskDetail": {
+-    "deadline": 5,
+-    "description": "test task to see "
+-  }
+-}
+-
+-<> 2021-08-07T082742.500.json
+-
+-###
+-
+-GET http://localhost:8080/user/login?password=4321&userName=sara_arj
+-Accept: application/json
+-
+-###
+-
+-GET http://localhost:8080/user/login?password=123884&userName=piper.p
+-Accept: application/json
+-
+-<> 2021-08-07T082639.500.json
+-
+-###
+-
+-GET http://localhost:8080/user/login?password=1234&userName=piper.p
+-Accept: application/json
+-
+-<> 2021-08-07T082633.500.json
+-
+-###
+-
+-GET http://localhost:8080/user/find?userName=piper.p
+-Accept: application/json
+-
+-<> 2021-08-07T082550.500.json
+-
+-###
+-
+-DELETE http://localhost:8080/user?userName=piper.p
+-Accept: application/json
+-
+-###
+-
+-GET http://localhost:8080/user/find?userName=piper.p
+-Accept: application/json
+-
+-<> 2021-08-07T082545.200.json
+-
+-###
+-
+-PUT http://localhost:8080/user/changePassword?username=sara_arj
+-Content-Type: application/json
+-
+-{
+-
+-  "currentPassword": "1234",
+-  "newPassword": "4321",
+-  "confirmPassword": "4321"
+-}
+-
+-###
+-
+-PUT http://localhost:8080/user?id=7
+-Content-Type: application/json
+-
+-{
+-
+-  "userName": "sara_arj",
+-  "password": "1234",
+-  "profile": {
+-    "firstName": "sara",
+-    "lastName": "arjmakoooooo",
+-    "nationalCode": "4458796240"
+-  }
+-}
+-
+-###
+-
+-POST http://localhost:8080/user
+-Content-Type: application/json
+-
+-{
+-  "userName": "sara_arj",
+-  "password": "1234",
+-  "profile": {
+-    "firstName": "sara",
+-    "lastName": "arjmandi",
+-    "nationalCode": "4458796240"
+-  }
+-}
+-
+-###
+-
+-POST http://localhost:8080/user
+-Content-Type: application/json
+-
+-{
+-  "userName": "Mina_l_t",
+-  "password": "1234",
+-  "profile": {
+-    "firstName": "mina",
+-    "lastName": "latifi",
+-    "nationalCode": "7789654857"
+-  }
+-}
+-
+-###
+-
+-POST http://localhost:8080/user
+-Content-Type: application/json
+-
+-{
+-  "userName": "Mahi76",
+-  "password": "1234",
+-  "profile": {
+-    "firstName": "Mahila",
+-    "lastName": "Hosseini",
+-    "nationalCode": "0020575823"
+-  }
+-}
+-
+-###
+-
+-POST http://localhost:8080/user
+-Content-Type: application/json
+-
+-{
+-  "userName": "piper.p",
+-  "password": "1234",
+-  "profile": {
+-    "firstName": "Peter",
+-    "lastName": "Piper",
+-    "nationalCode": "0021458978"
+-  }
+-}
+-
+-###
+-
+ PUT http://localhost:8080/user/changePassword?username=sara_arj
+ Content-Type: application/json
+ 
+@@ -595,3 +320,313 @@
+ 
+ ###
+ 
++GET http://localhost:8080/user/logIn?password=123884&userName=piper.p
++Accept: application/json
++
++<> 2021-08-04T163244.500.json
++
++###
++
++GET http://localhost:8080/user/find?userName=piper.p
++Accept: application/json
++
++<> 2021-08-04T163240.200.json
++
++###
++
++POST http://localhost:8080/user/add
++Content-Type: application/json
++
++{
++  "userName": "piper.p",
++  "password": "1234",
++  "profile": {
++    "firstName": "Peter",
++    "lastName": "Piper",
++    "nationalCode": "0021458978"
++  }
++}
++
++###
++
++GET http://localhost:8080/user/find?userName=sara_arj
++Accept: application/json
++
++<> 2021-08-04T163216.500.json
++
++###
++
++GET http://localhost:8080/user/find?userName=piper.p
++Accept: application/json
++
++<> 2021-08-04T163156.500.json
++
++###
++
++DELETE http://localhost:8080/user/delete?userName=sara_arj
++Accept: application/json
++
++###
++
++POST http://localhost:8080/task/add
++Content-Type: application/json
++
++{
++  "title": "tasknum1",
++  "priority": "NORMAL",
++  "userId": 1,
++  "taskDetail": {
++    "deadline": 5,
++    "description": "test task to see "
++  }
++}
++
++###
++
++POST http://localhost:8080/task/add
++Content-Type: application/json
++
++{
++  "title": "tasknum2",
++  "priority": "HIGH",
++  "userId": 1,
++  "taskDetail": {
++    "deadline": 18,
++    "description": "test task to see number2"
++  }
++}
++
++###
++
++POST http://localhost:8080/user/add
++Content-Type: application/json
++
++{
++  "userName": "sara_arj",
++  "password": "1234",
++  "profile": {
++    "firstName": "sara",
++    "lastName": "arjmandi",
++    "nationalCode": "4458796240"
++  }
++}
++
++###
++
++POST http://localhost:8080/task/add
++Content-Type: application/json
++
++{
++  "title": "tasknum2",
++  "priority": "HIGH",
++  "userId": 1,
++  "taskDetail": {
++    "deadline": 18,
++    "description": "test task to see number2"
++  }
++}
++
++<> 2021-08-04T162413.500.json
++
++###
++
++POST http://localhost:8080/task/add
++Content-Type: application/json
++
++{
++  "title": "tasknum2",
++  "priority": "HIGH",
++  "userId": 1,
++  "taskDetail": {
++    "deadline": 18,
++    "description": "test task to see number2"
++  }
++}
++
++<> 2021-08-04T162350.500.json
++
++###
++
++POST http://localhost:8080/task/add
++Content-Type: application/json
++
++{
++  "title": "tasknum1",
++  "priority": "NORMAL",
++  "userId": 1,
++  "taskDetail": {
++    "deadline": 5,
++    "description": "test task to see "
++  }
++}
++
++<> 2021-08-04T162346.500.json
++
++###
++
++POST http://localhost:8080/user/add
++Content-Type: application/json
++
++{
++  "userName": "sara_arj",
++  "password": "1234",
++  "profile": {
++    "firstName": "sara",
++    "lastName": "arjmandi",
++    "nationalCode": "4458796240"
++  }
++}
++
++###
++
++PUT http://localhost:8080/user/update?id=7
++Content-Type: application/json
++
++{
++
++  "userName": "sara_arj",
++  "password": "1234",
++  "profile": {
++    "firstName": "sara",
++    "lastName": "arjmakoooooo",
++    "nationalCode": "4458796240"
++  }
++}
++
++<> 2021-08-04T162328.500.json
++
++###
++
++DELETE http://localhost:8080/task/delete?id=11
++Accept: application/json
++
++###
++
++PUT http://localhost:8080/task/edit?id=11
++Content-Type: application/json
++
++{
++  "priority": "LOW",
++  "taskDetail": {
++    "deadline": 65,
++    "description": "test task to see edited again"
++  }
++}
++
++###
++
++GET http://localhost:8080/task/getAll?userId=1
++Accept: application/json
++
++<> 2021-08-04T160651.200.json
++
++###
++
++GET http://localhost:8080/task/getAll?userId=3
++Accept: application/json
++
++<> 2021-08-04T160647.200.json
++
++###
++
++PUT http://localhost:8080/task/do?id=11
++Accept: application/json
++
++###
++
++PUT http://localhost:8080/task/edit?id=13
++Content-Type: application/json
++
++{
++  "priority": "LOW",
++  "taskDetail": {
++    "deadline": 65,
++    "description": "test task to see edited again"
++  }
++}
++
++###
++
++POST http://localhost:8080/task/add
++Content-Type: application/json
++
++{
++  "title": "tasknum2",
++  "priority": "HIGH",
++  "userId":3,
++  "taskDetail": {
++    "deadline": 18,
++    "description": "test task to see number2"
++  }
++}
++
++###
++
++POST http://localhost:8080/task/add
++Content-Type: application/json
++
++{
++  "title": "tasknum2",
++  "priority": "HIGH",
++  "userId": 5,
++  "taskDetail": {
++    "deadline": 18,
++    "description": "test task to see number2"
++  }
++}
++
++###
++
++POST http://localhost:8080/task/add
++Content-Type: application/json
++
++{
++  "title": "tasknum1",
++  "priority": "NORMAL",
++  "userId": 3,
++  "taskDetail": {
++    "deadline": 5,
++    "description": "test task to see "
++  }
++}
++
++###
++
++POST http://localhost:8080/task/add
++Content-Type: application/json
++
++{
++  "title": "tasknum1",
++  "priority": "NORMAL",
++  "userId": 1,
++  "taskDetail": {
++    "deadline": 5,
++    "description": "test task to see "
++  }
++}
++
++<> 2021-08-04T160514.500.json
++
++###
++
++GET http://localhost:8080/user/logIn?password=123884&userName=piper.p
++Accept: application/json
++
++<> 2021-08-04T160446.500.json
++
++###
++
++GET http://localhost:8080/user/logIn?password=1234&userName=piper.p
++Accept: application/json
++
++<> 2021-08-04T160443.500.json
++
++###
++
++GET http://localhost:8080/user/find?userName=piper.p
++Accept: application/json
++
++<> 2021-08-04T160438.500.json
++
++###
++
+Index: .idea/httpRequests/2021-08-04T160438.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T160438.500.json b/.idea/httpRequests/2021-08-04T160438.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041902)
++++ b/.idea/httpRequests/2021-08-04T160438.500.json	(date 1628309041902)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T11:34:38.362+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/user/find"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T160443.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T160443.500.json b/.idea/httpRequests/2021-08-04T160443.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041910)
++++ b/.idea/httpRequests/2021-08-04T160443.500.json	(date 1628309041910)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T11:34:43.522+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/user/logIn"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T160446.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T160446.500.json b/.idea/httpRequests/2021-08-04T160446.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041914)
++++ b/.idea/httpRequests/2021-08-04T160446.500.json	(date 1628309041914)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T11:34:46.554+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/user/logIn"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T160514.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T160514.500.json b/.idea/httpRequests/2021-08-04T160514.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041918)
++++ b/.idea/httpRequests/2021-08-04T160514.500.json	(date 1628309041918)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T11:35:14.478+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/task/add"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T160647.200.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T160647.200.json b/.idea/httpRequests/2021-08-04T160647.200.json
+new file mode 100644
+--- /dev/null	(date 1628309041922)
++++ b/.idea/httpRequests/2021-08-04T160647.200.json	(date 1628309041922)
+@@ -0,0 +1,26 @@
++[
++  {
++    "id": 11,
++    "createdDate": "2021-08-04T11:35:19.908+00:00",
++    "title": "tasknum1",
++    "priority": "NORMAL",
++    "done": true,
++    "user": "Mahi76",
++    "taskDetail": {
++      "description": "test task to see ",
++      "deadline": 5
++    }
++  },
++  {
++    "id": 15,
++    "createdDate": "2021-08-04T11:35:35.163+00:00",
++    "title": "tasknum2",
++    "priority": "HIGH",
++    "done": false,
++    "user": "Mahi76",
++    "taskDetail": {
++      "description": "test task to see number2",
++      "deadline": 18
++    }
++  }
++]
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T160651.200.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T160651.200.json b/.idea/httpRequests/2021-08-04T160651.200.json
+new file mode 100644
+--- /dev/null	(date 1628309041926)
++++ b/.idea/httpRequests/2021-08-04T160651.200.json	(date 1628309041926)
+@@ -0,0 +1,1 @@
++[]
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T162328.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T162328.500.json b/.idea/httpRequests/2021-08-04T162328.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041934)
++++ b/.idea/httpRequests/2021-08-04T162328.500.json	(date 1628309041934)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T11:53:27.975+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/user/update"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T162346.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T162346.500.json b/.idea/httpRequests/2021-08-04T162346.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041938)
++++ b/.idea/httpRequests/2021-08-04T162346.500.json	(date 1628309041938)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T11:53:45.918+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/task/add"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T162350.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T162350.500.json b/.idea/httpRequests/2021-08-04T162350.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041942)
++++ b/.idea/httpRequests/2021-08-04T162350.500.json	(date 1628309041942)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T11:53:50.497+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/task/add"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T162413.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T162413.500.json b/.idea/httpRequests/2021-08-04T162413.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041946)
++++ b/.idea/httpRequests/2021-08-04T162413.500.json	(date 1628309041946)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T11:54:13.405+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/task/add"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T163156.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T163156.500.json b/.idea/httpRequests/2021-08-04T163156.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041954)
++++ b/.idea/httpRequests/2021-08-04T163156.500.json	(date 1628309041954)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T12:01:56.044+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/user/find"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T163216.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T163216.500.json b/.idea/httpRequests/2021-08-04T163216.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041958)
++++ b/.idea/httpRequests/2021-08-04T163216.500.json	(date 1628309041958)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T12:02:16.175+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/user/find"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T163240.200.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T163240.200.json b/.idea/httpRequests/2021-08-04T163240.200.json
+new file mode 100644
+--- /dev/null	(date 1628309041962)
++++ b/.idea/httpRequests/2021-08-04T163240.200.json	(date 1628309041962)
+@@ -0,0 +1,11 @@
++{
++  "id": 7,
++  "createdDate": "2021-08-04T12:02:29.541+00:00",
++  "userName": "piper.p",
++  "password": "1234",
++  "profile": {
++    "firstName": "Peter",
++    "lastName": "Piper",
++    "nationalCode": "0021458978"
++  }
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-04T163244.500.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-04T163244.500.json b/.idea/httpRequests/2021-08-04T163244.500.json
+new file mode 100644
+--- /dev/null	(date 1628309041966)
++++ b/.idea/httpRequests/2021-08-04T163244.500.json	(date 1628309041966)
+@@ -0,0 +1,6 @@
++{
++  "timestamp": "2021-08-04T12:02:44.630+00:00",
++  "status": 500,
++  "error": "Internal Server Error",
++  "path": "/user/logIn"
++}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T082545.200.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T082545.200.json b/.idea/httpRequests/2021-08-07T082545.200.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T082545.200.json	
++++ /dev/null	
+@@ -1,11 +0,0 @@
+-{
+-  "id": 1,
+-  "createdDate": "2021-08-07T03:53:59.121+00:00",
+-  "userName": "piper.p",
+-  "password": "1234",
+-  "profile": {
+-    "firstName": "Peter",
+-    "lastName": "Piper",
+-    "nationalCode": "0021458978"
+-  }
+-}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T082550.500.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T082550.500.json b/.idea/httpRequests/2021-08-07T082550.500.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T082550.500.json	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-{
+-  "timestamp": "2021-08-07T03:55:50.730+00:00",
+-  "status": 500,
+-  "error": "Internal Server Error",
+-  "path": "/user/find"
+-}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T082633.500.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T082633.500.json b/.idea/httpRequests/2021-08-07T082633.500.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T082633.500.json	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-{
+-  "timestamp": "2021-08-07T03:56:33.047+00:00",
+-  "status": 500,
+-  "error": "Internal Server Error",
+-  "path": "/user/login"
+-}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T082639.500.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T082639.500.json b/.idea/httpRequests/2021-08-07T082639.500.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T082639.500.json	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-{
+-  "timestamp": "2021-08-07T03:56:39.868+00:00",
+-  "status": 500,
+-  "error": "Internal Server Error",
+-  "path": "/user/login"
+-}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T082742.500.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T082742.500.json b/.idea/httpRequests/2021-08-07T082742.500.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T082742.500.json	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-{
+-  "timestamp": "2021-08-07T03:57:42.229+00:00",
+-  "status": 500,
+-  "error": "Internal Server Error",
+-  "path": "/task/add"
+-}
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T082822.200.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T082822.200.json b/.idea/httpRequests/2021-08-07T082822.200.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T082822.200.json	
++++ /dev/null	
+@@ -1,26 +0,0 @@
+-[
+-  {
+-    "id": 11,
+-    "createdDate": "2021-08-07T03:57:48.837+00:00",
+-    "title": "tasknum2",
+-    "priority": "LOW",
+-    "done": true,
+-    "user": "sara_arj",
+-    "taskDetail": {
+-      "description": "test task to see edited again",
+-      "deadline": 65
+-    }
+-  },
+-  {
+-    "id": 13,
+-    "createdDate": "2021-08-07T03:57:55.360+00:00",
+-    "title": "tasknum2",
+-    "priority": "HIGH",
+-    "done": false,
+-    "user": "sara_arj",
+-    "taskDetail": {
+-      "description": "test task to see number2",
+-      "deadline": 18
+-    }
+-  }
+-]
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T082850.200.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T082850.200.json b/.idea/httpRequests/2021-08-07T082850.200.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T082850.200.json	
++++ /dev/null	
+@@ -1,1 +0,0 @@
+-[]
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T082905.200.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T082905.200.json b/.idea/httpRequests/2021-08-07T082905.200.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T082905.200.json	
++++ /dev/null	
+@@ -1,1 +0,0 @@
+-[]
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T083015.200.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T083015.200.json b/.idea/httpRequests/2021-08-07T083015.200.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T083015.200.json	
++++ /dev/null	
+@@ -1,1 +0,0 @@
+-[]
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T083146.200.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T083146.200.json b/.idea/httpRequests/2021-08-07T083146.200.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T083146.200.json	
++++ /dev/null	
+@@ -1,1 +0,0 @@
+-[]
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T083228.200.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T083228.200.json b/.idea/httpRequests/2021-08-07T083228.200.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T083228.200.json	
++++ /dev/null	
+@@ -1,1 +0,0 @@
+-[]
+\ No newline at end of file
+Index: .idea/httpRequests/2021-08-07T083256.500.json
+===================================================================
+diff --git a/.idea/httpRequests/2021-08-07T083256.500.json b/.idea/httpRequests/2021-08-07T083256.500.json
+deleted file mode 100644
+--- a/.idea/httpRequests/2021-08-07T083256.500.json	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-{
+-  "timestamp": "2021-08-07T04:02:56.433+00:00",
+-  "status": 500,
+-  "error": "Internal Server Error",
+-  "path": "/task/getAll"
+-}
+\ No newline at end of file
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_8_4_21,_5_54_PM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_8_4_21,_5_54_PM_[Changes]/shelved.patch
+deleted file mode 100644
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21,_5_57_PM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21,_5_57_PM_[Changes]/shelved.patch
+deleted file mode 100644
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21,_5_57_PM_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_4_21,_5_57_PM_[Changes]1/shelved.patch
+deleted file mode 100644

@@ -1,6 +1,6 @@
 package com.example.testSample.model.entity;
 
-import com.example.testSample.enums.Priority;
+import com.example.testSample.model.enums.Priority;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
